@@ -1,0 +1,40 @@
+h2:after {
+    content:' ';
+    display:block;
+    border:1px solid black;
+}
+
+#counter {
+
+  float: right;
+  position: relative;
+  bottom: -15px;
+}
+
+textarea[name="text"] {
+
+  margin: 2px 8px;
+  width: 96%;
+  height: 80%;
+
+}
+
+input[type="submit"] {
+
+  margin: 10px;
+}
+
+.new-tweet {
+  border-radius: 20%;
+  padding: 1px 5px;
+
+}
+
+.container {
+
+  border-radius: 3%;
+}
+
+.belowZero {
+  color: red;
+}
