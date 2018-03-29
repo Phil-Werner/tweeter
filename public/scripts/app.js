@@ -12,6 +12,37 @@ $(document).ready(function() {
 
   });
 
+  // $('#nav-bar .compose').on('mouseover', function(event) {
+
+  //   event.preventDefault();
+
+  // })
+
+
+  $('#nav-bar .pencil').on('click', function() {
+
+    //console.log("!!!");
+    if ( $( '.new-tweet').is (":hidden") ) {
+      $( '.new-tweet').slideDown( "slow" );
+    } else {
+      $( ".new-tweet").hide();
+
+    }
+
+  });
+
+  $('#nav-bar .compose').on('click', function() {
+
+   // console.log("!!!");
+    if ( $( '.new-tweet').is (":hidden") ) {
+      $( '.new-tweet').slideDown( "slow" );
+    } else {
+      $( ".new-tweet").hide();
+
+    }
+
+  });
+
 
   $('.new-tweet form').on('submit', function(event) {
 

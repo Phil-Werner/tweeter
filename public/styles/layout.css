@@ -38,9 +38,14 @@ main {
 
 .tweet {
 
-  margin: 10px;
+  margin: 0px;
   border: solid;
   box-sizing: border-box;
+}
+
+.tweet:hover {
+
+  font-weight: bold;
 }
 
 .tweetHeader {
