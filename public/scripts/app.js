@@ -56,12 +56,20 @@ $(document).ready(function() {
     })
   });
 
+
+  function escape(str) {
+
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   function createTweetElement(tweet) {
 
     let $tweet = $("<article>").addClass("tweet");
     let $tweetHead = $("<div>").addClass("tweetHeader");
     let $userName = $("<p>").addClass("userName").html(tweet["user"]["name"]);
-    let $tweetContent = $("<section>").addClass("someTweet").html(tweet["content"]["text"]);
+    let $tweetContent = $("<section>").addClass("someTweet").html(escape(tweet["content"]["text"]));
     let $tweetDate = $("<footer>").addClass("footer").html(tweet["created_at"]);
     let $line = $("<section>").html("<hr>");
 
