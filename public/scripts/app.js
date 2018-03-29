@@ -4,28 +4,56 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": {
-      "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-      "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-      "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-    },
-    "handle": "@SirIsaac"
-  },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1461116232227
-}
-
 $(document).ready(function() {
 
   $('.tweet').hover(function(){
 
     $('.userName').toggleClass("hovered");
 
+  });
+
+
+  $('.new-tweet form').on('submit', function(event) {
+
+    event.preventDefault();
+
+    let inputString = $("#textTweet").val();
+    let inputSerial = $("#textTweet").serialize();
+
+    if (inputString.length === 0) {
+
+      alert("Error:  Your tweet is empty!  Please add some text to your tweet :)");
+      return;
+    }
+
+    if (inputString.length > 140) {
+
+      alert("Error:  Your tweet is too long!  Please keep your tweet to 140 characters or less!");
+      return;
+    }
+
+    $.ajax({
+
+      url: '/tweets',
+      method: 'POST',
+      data: inputSerial,
+      success: function (){
+
+
+        $.ajax({
+         url: '/tweets',
+         method: 'GET',
+         success: function (tweets) {
+
+        console.log(tweets.length -1);
+
+        let $newTweet = createTweetElement(tweets[tweets.length - 1]);
+           //console.log($newTweet);
+           $("#mainContainer").append($newTweet);
+         }
+       })
+      }
+    })
   });
 
   function createTweetElement(tweet) {
@@ -53,7 +81,7 @@ $(document).ready(function() {
 
     for (let i = 0; i < tweets.length; i++) {
 
-      let $currentTweet = createTweetElement(tweets[0]);
+      let $currentTweet = createTweetElement(tweets[i]);
 
       $("#mainContainer").append($currentTweet);
 
@@ -61,11 +89,20 @@ $(document).ready(function() {
 
   }
 
-  let $tweet = createTweetElement(tweetData);
+  function loadTweets() {
 
-  console.log($tweet);
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      success: function (tweets) {
+        //console.log(tweets);
+        renderTweets(tweets);
+      }
 
-  $("#mainContainer").append($tweet);
+    });
+  }
+
+  loadTweets();
 
 });
 
