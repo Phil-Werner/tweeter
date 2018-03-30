@@ -38,9 +38,10 @@ main {
 
 .tweet {
 
-  margin: 0px;
+  margin-bottom: 12px;
   border: solid;
   box-sizing: border-box;
+  border-radius: 1%;
 }
 
 .tweet:hover {
@@ -51,19 +52,37 @@ main {
 .tweetHeader {
 
   margin-top: 0px;
-  background-color: grey;
+  background-color: lightgrey;
+  height: 120px;
+}
+
+.avatar {
+
+  position: relative;
+  top: 8px;
+  left: 7px;
+}
+
+.avatar img {
+
+  border-radius: 10%
 }
 
 .userName {
 
-  font-size: 200%;
+  position: relative;
+  font-size: 180%;
   padding: 15px;
   margin: 0;
+  top: -105px;
+  left: 100px;
 }
 
 .someTweet {
 
+  position: relative;
   margin: 20px;
+  width: 100%;
 }
 
 .footer {
@@ -72,6 +91,13 @@ main {
 
 .hovered {
   font-weight: bold;
+}
+
+.handle {
+  float: right;
+  position: relative;
+  top: -150px;
+  left: -5px;
 }
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions

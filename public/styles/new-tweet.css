@@ -25,7 +25,6 @@ input[type="submit"] {
 }
 
 .new-tweet {
-  border-radius: 20%;
   padding: 1px 5px;
   display: none;
 
@@ -33,7 +32,7 @@ input[type="submit"] {
 
 .container {
 
-  border-radius: 3%;
+  border-radius: 4%/2%;
 }
 
 .belowZero {
