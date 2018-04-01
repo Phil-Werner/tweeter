@@ -87,9 +87,7 @@ main Container.  */
   }
 
 /*
-*
 * The function loadTweets uses ajax to load all the tweets from the mongo database
-*
 */
   function loadTweets() {
 
@@ -104,8 +102,6 @@ main Container.  */
 
   /* The following bit of code reveals the tweet compose form, if the user
   clicks on the compose button or the pencil image. */
-
-
 
   let input = $('#textTweet');
 
